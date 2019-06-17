@@ -1,4 +1,5 @@
 //ResetSubmit
+import React, { Component } from 'react';
 import Presentation from "./presentation";
 
 class ResetSubmit extends Component {

@@ -1,4 +1,5 @@
 //OurDb
+import React, { Component } from 'react';
 import Presentation from "./presentation";
 
 class OurDb extends Component {

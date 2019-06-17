@@ -1,4 +1,5 @@
 //YourQuery
+import React, { Component } from 'react';
 import Presentation from "./presentation";
 
 class YourQuery extends Component {
