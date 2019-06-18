@@ -1,7 +1,7 @@
 {
   "name": "emoji-search",
   "jest": {
-    "verbose": true
+    "setupFilesAfterEnv": "./src/setupTests.js" 
   },
   "version": "0.1.0",
   "license": "MIT",
@@ -10,7 +10,8 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^24.8.0",
     "prettier": "^1.13.0",
-    "react-scripts": "^1.0.17"
+    "react-scripts": "^1.0.17",
+    "react-test-renderer": "^16.8.6"
   },
   "dependencies": {
     "react": "^16.2.0",
@@ -20,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
   }
