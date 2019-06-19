@@ -9,8 +9,11 @@ class App extends Component {
 		return (
 			<div>
 				<YourQuery />
+				<br />
 				<OurDb />
+				<br />
 				<Program />
+				<br />
 				<ResetSubmit />
 			</div>
 		);

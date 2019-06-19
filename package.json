@@ -1,16 +1,12 @@
 {
   "name": "emoji-search",
-  "jest": {
-    "setupFilesAfterEnv": "./src/setupTests.js" 
-  },
   "version": "0.1.0",
   "license": "MIT",
   "devDependencies": {
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "jest": "^24.8.0",
     "prettier": "^1.13.0",
-    "react-scripts": "^1.0.17",
+    "react-scripts": "^3.0.1",
     "react-test-renderer": "^16.8.6"
   },
   "dependencies": {
