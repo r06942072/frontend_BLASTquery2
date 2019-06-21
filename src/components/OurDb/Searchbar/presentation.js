@@ -1,9 +1,9 @@
 import React from 'react';
 
-function aaa(props) {
+function Searchbar(props) {
     return (
         <div>
-            <p>sssss</p>
+            <p>Search in {props.data.count} organisms</p>
             <form>
                 <input type="text" placeholder="Search..." />
             </form>
@@ -11,4 +11,4 @@ function aaa(props) {
     );
 }
 
-export default aaa;
+export default Searchbar;

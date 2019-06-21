@@ -1,17 +1,25 @@
 //OurDb
 import React, { Component } from 'react';
-import Presentation from "./presentation";
+import Searchbar from "./Searchbar/presentation";
 
 class OurDb extends Component {
 	constructor() {
 		super();
+		this.state = {
+			count: 60
+		}
 	}
-	
+
 	render() {
 		return (
-			<Presentation
-				//props pass to children
-			/>
+			<div>
+				<h1>OurDb</h1>
+				<h2>BLAST Databases</h2>
+				<Searchbar
+					//props pass to children
+					data={this.state}
+				/>
+			</div>
 		);
 	}
 }
