@@ -3,7 +3,8 @@ import React from 'react';
 function FastaTextbox(props) {
     return (
         <div>
-            <textarea cols={40} rows={8} />
+            <p>windowWidth = {props.data.windowWidth}, windowHeight = {props.data.windowHeight}</p>
+            <textarea cols={props.data.fastaWidth} rows={props.data.fastaHeight} />
         </div>
     );
 }
