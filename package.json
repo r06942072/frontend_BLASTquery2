@@ -10,11 +10,15 @@
     "react-test-renderer": "^16.8.6"
   },
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "styled-components": "^4.3.1"
   },
+  "homepage": "https://r06942072.github.io/frontend_BLASTquery",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
