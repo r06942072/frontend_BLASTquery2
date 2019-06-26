@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Xxx(props) {
+function OrganismDetail(props) {
     return (
         <div>
-
+            <p>*OrganismDetail</p>
         </div>
     );
 }
 
-export default Xxx;
+export default OrganismDetail;

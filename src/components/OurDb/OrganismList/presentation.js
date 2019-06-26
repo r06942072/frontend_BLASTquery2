@@ -1,11 +1,14 @@
 import React from 'react';
+import App from '../../App';
 
-function Xxx(props) {
+function OrganismList(props) {
     return (
         <div>
-
+            <p>*OrganismList</p>
+            <li>{props.data.list[0]}</li>
+            <li>{props.data.list[1]}</li>
         </div>
     );
 }
 
-export default Xxx;
+export default OrganismList;
