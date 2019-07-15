@@ -3,9 +3,13 @@ import React from 'react';
 function Searchbar(props) {
     return (
         <div>
-            <p>Search in {props.data.count} organisms</p>
+            <p>*SearchBar</p>
             <form>
-                <input type="text" placeholder="Search..." />
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    onChange={props.handleSearchChange}
+                />
             </form>
         </div>
     );

@@ -1,12 +1,15 @@
 import React from 'react';
-import App from '../../App';
 
 function OrganismList(props) {
+    const items = props.showList.map((array) =>
+        <li key={array.id}>{array.fullName}</li>
+    );
     return (
         <div>
             <p>*OrganismList</p>
-            <li>{props.data.list[0]}</li>
-            <li>{props.data.list[1]}</li>
+            <ul>
+                {items}
+            </ul>
         </div>
     );
 }
