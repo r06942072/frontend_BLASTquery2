@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 import Searchbar from "./Searchbar/presentation";
 import OrganismList from "./OrganismList/presentation";
 import OrganismDetail from "./OrganismDetail/presentation";
+import { tsMethodSignature } from '@babel/types';
 
 class OurDb extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props); //this.props is now meaningful
 		this.state = {
 			count: 60,
 			organismSingle: {
@@ -15,37 +16,19 @@ class OurDb extends Component {
 				gggsss: ""
 			},
 			searchbarText: "",
-			allList: [
-				{ "id": 0, "fullName": "Aethina tumdia" },
-				{ "id": 1, "fullName": "Bombus terrestis" },
-				{ "id": 2, "fullName": "Hyalella azteca" }
-			],
-			showList: [
-				{ "id": 0, "fullName": "Aethina tumdia" },
-				{ "id": 1, "fullName": "Bombus terrestis" },
-				{ "id": 2, "fullName": "Hyalella azteca" }
-			]
+			showList: []
 		}
 	}
-	/*
-	getList() axios
-	*/
-	/*
 	componentDidMount() {
 		this.setState({
-			list: [
-				{"id": 0, "fullName": "Aethina tumdia"},
-				{"id": 1, "fullName": "Bombus terrestis"},
-				{"id": 2, "fullName": "Hyalella azteca"}
-			]
+			showList: this.props.allList
 		});
 	}
-	*/
 	componentDidUpdate(prevProps, prevState) {
-		console.log("componentDidUpdate");
+		//console.log("componentDidUpdate");
 		if (prevState.searchbarText !== "" && this.state.searchbarText === "") {
 			this.setState({
-				showList: this.state.allList
+				showList: this.props.allList
 			});
 		}
 		else if (prevState.searchbarText !== this.state.searchbarText) {
@@ -59,9 +42,30 @@ class OurDb extends Component {
 			searchbarText: event.target.value
 		});
 	}
+	_handleCheckboxAll = (event) => {
+		let newList = this.state.showList;
+		//loop through each element in the newList
+		newList.forEach((data) => {
+			data.isChecked = event.target.checked;
+		});
+		//update showList
+		this.setState({ showList: newList });
+	}	
+	_handleCheckboxChange = (event) => {
+		let newList = this.state.showList;
+		//loop through each element in the newList
+		newList.forEach((data) => {
+			if (data.fullName === event.target.name) {
+				data.isChecked = event.target.checked;
+			}
+		});
+		//update showList
+		this.setState({ showList: newList });
+	}
 	_returnShowList = () => {
+		//capture showList from props.allList
 		const newList =
-			this.state.showList.filter(
+			this.props.allList.filter(
 				(data) => {
 					if (data.fullName.toLowerCase().includes(
 						this.state.searchbarText.toLowerCase())) {
@@ -75,21 +79,7 @@ class OurDb extends Component {
 		const notFound = { "id": 404, "fullName": "Not found" }
 		return (newList.length !== 0) ? newList : [notFound];
 	}
-	/*
-	filterEmoji(searchText, maxResults) {
-		return emojiList
-		  .filter(emoji => {
-			if (emoji.title.toLowerCase().includes(searchText.toLowerCase())) {
-			  return true;
-			}
-			if (emoji.keywords.includes(searchText)) {
-			  return true;
-			}
-			return false;
-		  })
-		  .slice(0, maxResults);
-	  }
-	  */
+
 	render() {
 		return (
 			<div>
@@ -100,6 +90,8 @@ class OurDb extends Component {
 				/>
 				<OrganismList
 					showList={this.state.showList}
+					handleCheckboxAll={this._handleCheckboxAll}
+					handleCheckboxChange={this._handleCheckboxChange}
 				/>
 				<OrganismDetail
 					data={this.state}
