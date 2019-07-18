@@ -8,11 +8,11 @@ import {
 const initialState = {
     searchbarText: '',
     allList: [
-        { "id": 11, "fullName": "Chun-Hung", "isChecked": false },
-        { "id": 22, "fullName": "Johnny", "isChecked": false },
-        { "id": 33, "fullName": "dennis", "isChecked": false }
+        { "id": 11, "fullName": "PleaseFetchDataFromRemote", "isChecked": false },
+        { "id": 22, "fullName": "reducer/formReducer.js", "isChecked": false },
+        { "id": 33, "fullName": "Chun-Hung", "isChecked": false }
     ],
-    whichProgram: 'firstProgram'
+    whichProgram: 'blastn'
 };
 
 export default (state = initialState, action) => {

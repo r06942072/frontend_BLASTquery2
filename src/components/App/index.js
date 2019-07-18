@@ -36,12 +36,14 @@ class App extends Component {
 	}
 	componentDidUpdate(prevProps, prevState) {
 		console.log('componentDidUpdate');
+		//console.log(prevProps);
 	}
 	//YourQuery section
 
 	//OurDb section
 	_handleSearchbarChange = (event) => {
 		this.props.setSearchbar(event.target.value);
+		this.forceUpdate();
 	}
 	_handleCheckboxAll = (event) => {
 		let newList = this.props.allList;
@@ -49,16 +51,18 @@ class App extends Component {
 			res.isChecked = event.target.checked
 		});
 		this.props.setList(newList);
+		this.forceUpdate();
 	}
 	_handleCheckboxChange = (event) => {
-		//console.log(event.target.checked);
+		
 		let newList = this.props.allList;
 		newList.forEach((res) => {
 			if (res.fullName === event.target.name) {
-				res.isChecked = !res.isChecked;
+				res.isChecked = event.target.checked;
 			}
 		});
 		this.props.setList(newList);
+		this.forceUpdate();
 	}
 	_isRenderAll = () => {
 		const searchbarText = this.props.searchbarText;
