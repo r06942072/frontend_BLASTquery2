@@ -1,4 +1,4 @@
-//ResetSubmit
+//Program
 import styled from 'styled-components';
 
 /* example
